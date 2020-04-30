@@ -1,1 +1,1 @@
-# I messed up this is actually for CSCI 366 haha
+# New: I renamed the repo, the name is actually correct now haha
