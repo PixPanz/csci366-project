@@ -1,0 +1,13 @@
+nav a{
+    background-color: #399ee2;
+    border-radius: 4px;
+    color: white;
+    display: inline-block;
+    margin-top: 10px;
+    margin-right: 3px;
+    padding: 5px 10px;
+}
+nav a:hover{
+    color: #039be5;
+    background-color: #cfd8dc;
+}
