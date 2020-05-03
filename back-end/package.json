@@ -1,22 +1,23 @@
 {
   "name": "back-end",
   "version": "1.0.0",
-  "description": "Project Back End, for use with PostgreSQL",
-  "main": "server.js",
+  "description": "",
+  "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "babel-watch server.js"
   },
-  "keywords": [
-    "nodejs",
-    "express",
-    "postgresql"
-  ],
-  "author": "PixPanz and the gang",
+  "keywords": [],
+  "author": "",
   "license": "ISC",
   "dependencies": {
-    "body-parser": "^1.19.0",
+    "@babel/core": "^7.9.6",
+    "@babel/preset-env": "^7.9.6",
+    "babel-cli": "^6.26.0",
+    "babel-preset-env": "^1.7.0",
+    "babel-watch": "^7.0.0",
+    "cors": "^2.8.5",
     "express": "^4.17.1",
-    "pg": "^8.0.3",
-    "pg-hstore": "^2.3.3"
+    "pg": "^8.0.3"
   }
 }
