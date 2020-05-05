@@ -1,8 +1,8 @@
 <app-nav-bar></app-nav-bar>
 <ul class = "quizList">
-  <li>
-    <h3 class = "quizName">Quiz Name</h3>
-    <label class = "quizDesc">Quiz Description</label>
+  <li *ngFor="let quiz of quizzes">
+    <h3 class = "quizName">{{Quiz.quizName}}</h3>
+    <label class = "quizDesc">{{Quiz.quizDesc}}</label>
     <button>Take the quiz</button>
   </li>
 </ul>
