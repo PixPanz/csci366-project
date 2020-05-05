@@ -17,3 +17,7 @@
     font-size: 1em;
     padding-left: .4em;
   }
+
+  button {
+      width: 100px;
+  }

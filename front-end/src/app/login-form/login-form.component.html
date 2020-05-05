@@ -1,0 +1,10 @@
+<label>
+  Username:
+  <input type="text" [formControl]="username">
+</label>
+<label>
+  Password:
+  <input type="password" [formControl]="password">
+</label>
+
+<button type="submit" class="btn btn-default" [disabled]="loginForm.invalid">I'm a button</button>
