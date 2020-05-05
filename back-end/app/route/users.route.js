@@ -1,5 +1,5 @@
 module.exports = app => {
-    const users = require("../model/users.model.js");
+    const users = require("../controller/users.controller");
     var router = require("express").Router();
     //Create a new User
     router.post("/", users.create);

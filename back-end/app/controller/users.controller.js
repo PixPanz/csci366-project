@@ -1,4 +1,4 @@
-const db = require("../models");
+const db = require("../model");
 const User = db.users;
 const Op = db.Sequelize.Op;
 
@@ -29,7 +29,7 @@ exports.create = (req, res) => {
 //retrieve all users
 exports.findAll = (req, res) => {
     const username = req.query.username;
-    var condition = username ? { title: { [Op.iLike]: '%${username}%'}} : null;
+    var condition = username ? { Username: { [Op.iLike]: '%${username}%'}} : null;
     User.findAll({where: condition})
     .then(data => {
         res.send(data);
