@@ -1,23 +1,25 @@
-<form #f = "ngForm" (ngSubmit) = "onSubmit(f)">
-  <div class = "form-group">
-    <label for="loginUsername">Username</label>
-    <input type="text" name = "username" ngModel required #username="ngModel"
-           id="loginUsername"
-           placeholder="Enter username">
-           <!-- <p>Username value: {{username.value}}</p>
-           <p>Username valid: {{username.valid}}</p>
-           <p>Username dirty: {{username.dirty}}</p>
-           <p>Username touched: {{username.touched}}</p> -->
-  </div>
-  <div class = "form-group">
-    <label for="loginPassword">Password</label>
-    <input type="password" name = "pass" ngModel required #password="ngModel"
-           id="loginPassword"
-           placeholder="Enter password">
-           <!-- <p>Password value: {{password.value}}</p>
-           <p>Password valid: {{password.valid}}</p>
-           <p>Password dirty: {{password.dirty}}</p>
-           <p>Password touched: {{password.touched}}</p> -->
-  </div>
-  <button> Submit</button>
-</form>
+<div>
+  <form #f = "ngForm" (ngSubmit) = "onSubmit(f)">
+    <div class = "form-group">
+      <label for="loginUsername">Username</label>
+      <input type="text" name = "username" ngModel required #username="ngModel"
+            id="loginUsername"
+            placeholder="Enter username">
+            <!-- <p>Username value: {{username.value}}</p>
+            <p>Username valid: {{username.valid}}</p>
+            <p>Username dirty: {{username.dirty}}</p>
+            <p>Username touched: {{username.touched}}</p> -->
+    </div>
+    <div class = "form-group">
+      <label for="loginPassword">Password</label>
+      <input type="password" name = "pass" ngModel required #password="ngModel"
+            id="loginPassword"
+            placeholder="Enter password">
+            <!-- <p>Password value: {{password.value}}</p>
+            <p>Password valid: {{password.valid}}</p>
+            <p>Password dirty: {{password.dirty}}</p>
+            <p>Password touched: {{password.touched}}</p> -->
+    </div>
+    <button> Submit</button>
+  </form>
+</div>
