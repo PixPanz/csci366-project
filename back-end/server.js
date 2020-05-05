@@ -4,7 +4,6 @@ const bodyParser = require('body-parser');
 const cors = require('cors');
 const db = require('./app/model/index.js');
 
-
 db.sequelize.sync();
 
 var corsOptions = {
@@ -18,6 +17,9 @@ app.use(bodyParser.json())
 app.use(cors(corsOptions));
 
 const PORT = process.env.PORT || 8080;
+require("./app/route/users.route")(app);
+require("./app/route/quizzes.route")(app);
+require("./app/route/questions.route")(app);
 app.listen(PORT, () => {
     console.log('Server is running on port ${PORT}');
 })
