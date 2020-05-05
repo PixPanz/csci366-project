@@ -2,22 +2,20 @@
   "name": "back-end",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "babel-watch server.js"
+    "test": "node server.js"
   },
-  "keywords": [],
+  "repository": {
+    "type": "git",
+    "url": "git"
+  },
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@babel/core": "^7.9.6",
-    "@babel/preset-env": "^7.9.6",
-    "babel-cli": "^6.26.0",
-    "babel-preset-env": "^1.7.0",
-    "babel-watch": "^7.0.0",
     "cors": "^2.8.5",
     "express": "^4.17.1",
-    "pg": "^8.0.3"
+    "pg": "^8.0.3",
+    "sequelize": "^5.21.7"
   }
 }
