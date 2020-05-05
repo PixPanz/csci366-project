@@ -1,5 +1,15 @@
-import express from 'express';
+//create the client and connectionString
+const { Pool, Client } = require('pg')
+const connectionString = 'postgressql://postgres:cs366@localhost:5432/QuizApp'
+const client = new Client({
+    connectionString: connectionString
+})
 
-const app = express();
-app.get('/', (req, res) => res.send('Hello World!'));
-app.listen(4000, () => console.log(`Express server running on port 4000`));
+//connect to the database
+client.connect()
+
+//query the database
+client.query('SELECT * from users',(err, res) =>{
+    console.log(err,res)
+    client.end()
+})
