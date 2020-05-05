@@ -1,6 +1,3 @@
-h1 {
-    text-align: center;
-}
 :host {
     display: flex;
     flex-direction: column;
@@ -19,4 +16,8 @@ h1 {
     height: 2em;
     font-size: 1em;
     padding-left: .4em;
+  }
+
+  button {
+      width: 100px;
   }
