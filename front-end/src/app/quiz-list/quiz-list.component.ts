@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { QuizService } from '../quiz.service';
 
 @Component({
   selector: 'app-quiz-list',
@@ -7,9 +8,38 @@ import { Component, OnInit } from '@angular/core';
 })
 export class QuizListComponent implements OnInit {
 
-  constructor() { }
+  quizzes: any;
+  currentQuiz = null;
+  currentIndex = -1;
+  quizName = '';
+
+  constructor(private quizService: QuizService) { }
 
   ngOnInit() {
+    this.retrieveQuizzes();
+  }
+
+  retrieveQuizzes(){
+    this.quizService.getAll()
+    .subscribe(
+      data => {
+        this.quizzes = data;
+        console.log(data);
+      },
+      error => {
+        console.log(error);
+      });
+  }
+
+  refreshList() {
+    this.retrieveQuizzes();
+    this.currentQuiz = null;
+    this.currentIndex = -1;
+  }
+
+  setActiveQuiz(quiz, index){
+    this.currentQuiz = quiz;
+    this.currentIndex = index;
   }
 
 }
