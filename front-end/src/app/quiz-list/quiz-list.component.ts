@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
-import { UserService } from '../user.service';
+import { QuizService } from '../quiz.service';
 import { Quiz, QuizQuestions } from '../Quiz';
+import { UserService } from '../user.service';
 
 @Component({
   selector: 'app-quiz-list',
@@ -12,17 +12,37 @@ export class QuizListComponent implements OnInit {
   quiz: Quiz[];
   questions: QuizQuestions[];
 
+  quizzes: any;
+  currentQuiz = null;
+  currentIndex = -1;
+  quizName = '';
 
-  constructor(
-    private route: ActivatedRoute,
-    private userService: UserService
-    ) { }
+  constructor(private quizService: QuizService) { }
 
-  ngOnInit(): void {
-    this.getQuizzes();
+  ngOnInit() {
+    this.retrieveQuizzes();
   }
 
-  getQuizzes(): void {
-    this.userService.getQuizzes().subscribe(quiz => this.quiz = quiz);
+  retrieveQuizzes(){
+    this.quizService.getAll()
+    .subscribe(
+      data => {
+        this.quizzes = data;
+        console.log(data);
+      },
+      error => {
+        console.log(error);
+      });
+  }
+
+  refreshList() {
+    this.retrieveQuizzes();
+    this.currentQuiz = null;
+    this.currentIndex = -1;
+  }
+
+  setActiveQuiz(quiz, index){
+    this.currentQuiz = quiz;
+    this.currentIndex = index;
   }
 }
