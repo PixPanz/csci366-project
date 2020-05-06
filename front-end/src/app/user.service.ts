@@ -43,14 +43,9 @@ export class UserService {
     return this.http.get<Quiz[]>(`${this.quizUrl}/?quizName=${term}`).pipe(tap((_) => console.log('fetched quizzes')));
   }
 
-  /**
+
   addQuiz(quiz: Quiz): Observable<Quiz> {
-    return this.http.post<Quiz>(this.quizUrl)
+    return this.http.post<Quiz>(this.quizUrl, quiz, this.httpOptions).pipe(tap((newQuiz: Quiz) => console.log(`added quiz w/ quiz.quizId=${newQuiz.quizId}`)))
   }
-
-  */
-
   
-
-
 }

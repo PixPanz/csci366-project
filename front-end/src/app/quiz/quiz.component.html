@@ -1,1 +1,11 @@
 <app-nav-bar></app-nav-bar>
+
+<form [formGroup]="formGroup" (ngSubmit)="onSubmit()">
+    <ul class = "quiz">
+        <li *ngFor="let question of questions">
+        <h3 class = "quizName">{{questions.text}}</h3>
+        <input type="checkbox" class = "quizDesc">{{question.answers}}
+        </li>
+    </ul>
+</form>
+<button>Submit Quiz</button>

@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { QuizService } from '../quiz.service';
+import { Quiz, QuizQuestions } from '../Quiz';
+import { UserService } from '../user.service';
 
 @Component({
   selector: 'app-quiz-list',
@@ -7,6 +9,8 @@ import { QuizService } from '../quiz.service';
   styleUrls: ['./quiz-list.component.css']
 })
 export class QuizListComponent implements OnInit {
+  quiz: Quiz[];
+  questions: QuizQuestions[];
 
   quizzes: any;
   currentQuiz = null;
@@ -41,5 +45,4 @@ export class QuizListComponent implements OnInit {
     this.currentQuiz = quiz;
     this.currentIndex = index;
   }
-
 }
