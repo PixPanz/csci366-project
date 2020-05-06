@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Component, NgModule } from '@angular/core';
+import { FormControl, FormGroup, FormsModule } from '@angular/forms';
+
 
 @Component({
   selector: 'app-login-form',
@@ -8,17 +9,19 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 })
 export class LoginFormComponent {
 
-  loginForm: FormGroup;
+  stupid = 'funny haha';
 
-  ngOnInit(): void {
-    this.loginForm = new FormGroup({
-      'username': new FormControl('', [Validators.required]),
-      'password': new FormControl('', [Validators.required])
-    });
-  }
+  loginForm = new FormGroup({
+    username: new FormControl(''),
+    password: new FormControl(''),
+  });
 
-  onSubmit() {
-    
+  onClick() {
+    if (this.loginForm.value.username == "quizUser1") {
+      if (this.loginForm.value.password == "somePassword"){
+        alert("Valid Credentials")
+      } else { alert ("Invalid Password")}
+    } else { alert ("Invalid Username") }
   }
 
 }
