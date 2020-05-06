@@ -11,9 +11,9 @@ exports.create = (req, res) => {
         return;
     }
     const quiz = {
-        quizName = req.body.quizName,
-        quizDesc = req.body.QuizDesc,
-        questions = req.body.questions
+        quizName: req.body.quizName,
+        quizDesc: req.body.QuizDesc,
+        questions: req.body.questions
     }
     Quiz.create(quiz).then(data => {
         res.send(data);
