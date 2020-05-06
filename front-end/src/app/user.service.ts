@@ -45,12 +45,7 @@ export class UserService {
 
 
   addQuiz(quiz: Quiz): Observable<Quiz> {
-    return this.http.post<Quiz>(this.quizUrl, quiz, this.httpOptions).pipe(tap((newQuiz: Quiz) => this.log(`added quiz w/ quiz.quizId=${newQuiz.quizId}`)))
+    return this.http.post<Quiz>(this.quizUrl, quiz, this.httpOptions).pipe(tap((newQuiz: Quiz) => console.log(`added quiz w/ quiz.quizId=${newQuiz.quizId}`)))
   }
   
-<<<<<<< HEAD
-=======
-
-
->>>>>>> master
 }
