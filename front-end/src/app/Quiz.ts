@@ -2,7 +2,7 @@ export interface Quiz{
     quizId: number;
     quizName: string;
     quizDesc: string;
-    quizQuestions: string[];
+    quizQuestions: number[];
 }
 
 export interface QuizQuestions{
