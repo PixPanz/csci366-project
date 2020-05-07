@@ -11,7 +11,7 @@ export type EditorType = 'Question' | 'Name';
 })
 export class QuizCreatorComponent implements OnInit {
   toggle: EditorType = 'Question';
-  questions: number [];
+  questions: number [] = [];
   counter = 0;
   newQuestion: Question;
   newQuiz: Quiz;
@@ -28,16 +28,32 @@ export class QuizCreatorComponent implements OnInit {
   constructor(private questionService: QuestionService, private quizService: QuizService) { }
 
   ngOnInit() {
+    // this.newQuestion.text = '';
+    // this.newQuestion.answers = [];
+    // this.newQuestion.correct = '';
+
   }
   addQuestion(questionText, answ1, answ2, answ3, answ4){
-    this.questions.push(this.counter);
-    this.newQuestion.text = questionText;
-    this.newQuestion.answers.push(answ1);
-    this.newQuestion.answers.push(answ2);
-    this.newQuestion.answers.push(answ3);
-    this.newQuestion.answers.push(answ4);
-    this.newQuestion.correct = answ2;
-    this.questionService.create(this.newQuestion);
+      this.questions.push(this.counter);
+      this.newQuestion.text = questionText;
+      this.newQuestion.answers.push(answ1);
+      this.newQuestion.answers.push(answ2);
+      this.newQuestion.answers.push(answ3);
+      this.newQuestion.answers.push(answ4);
+      this.newQuestion.correct = answ2;
+    const data = {
+      text: this.newQuestion.text,
+      answers: this.newQuestion.answers,
+
+    }
+    this.questionService.create(data)
+    .subscribe(
+      response => {
+        console.log(response);
+      },
+      error => {
+        console.log(error);
+      });
     this.counter ++;
   }
 
@@ -45,6 +61,18 @@ export class QuizCreatorComponent implements OnInit {
     this.newQuiz.quizName = name;
     this.newQuiz.quizDesc = desc;
     this.newQuiz.quizQuestions = this.questions;
-    this.quizService.create(this.newQuiz);
+    const data = {
+      quizName: this.newQuiz.quizName,
+      quizDesc: this.newQuiz.quizDesc,
+      quizQuestions: this.newQuiz.quizQuestions 
+    }
+    this.quizService.create(data)
+    .subscribe(
+      response => {
+        console.log(response);
+      },
+      error => {
+        console.log(error);
+      });
   }
 }
