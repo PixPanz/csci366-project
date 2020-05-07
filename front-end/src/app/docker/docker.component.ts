@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./docker.component.css']
 })
 export class DockerComponent implements OnInit {
-  name: string = "TestUserName"
+  name: string = "quizUser1"
   constructor() { }
 
   ngOnInit() {
