@@ -1,5 +1,6 @@
 import { Component, NgModule } from '@angular/core';
 import { FormControl, FormGroup, FormsModule } from '@angular/forms';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -9,7 +10,7 @@ import { FormControl, FormGroup, FormsModule } from '@angular/forms';
 })
 export class LoginFormComponent {
 
-  stupid = 'funny haha';
+  constructor(private router: Router) { }
 
   loginForm = new FormGroup({
     username: new FormControl(''),
@@ -19,7 +20,8 @@ export class LoginFormComponent {
   onClick() {
     if (this.loginForm.value.username == "quizUser1") {
       if (this.loginForm.value.password == "somePassword"){
-        alert("Valid Credentials")
+        alert("Login Successful");
+        this.router.navigate(['/Index'])
       } else { alert ("Invalid Password")}
     } else { alert ("Invalid Username") }
   }

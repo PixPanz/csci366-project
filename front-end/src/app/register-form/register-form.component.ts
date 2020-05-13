@@ -1,24 +1,26 @@
-import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Component, NgModule } from '@angular/core';
+import { FormControl, FormGroup, FormsModule } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-register-form',
   templateUrl: './register-form.component.html',
   styleUrls: ['./register-form.component.css']
 })
-export class RegisterFormComponent implements OnInit {
+export class RegisterFormComponent {
 
-  registerForm: FormGroup;
+  constructor(private router: Router) { }
 
-  ngOnInit(): void {
-    this.registerForm = new FormGroup({
-      'username': new FormControl('', [Validators.required]),
-      'password': new FormControl('', [Validators.required])
-    });
-  }
+  registerForm = new FormGroup({
+    username: new FormControl(''),
+    password: new FormControl(''),
+  });
 
-  onSubmit() {
-    
-  }
+  onClick() {
+    if (this.registerForm.value.username != '' && this.registerForm.value.password != ''){
+      alert("Registration Successful");
+      this.router.navigate(['/Index']);
+    } else { alert("Please enter values!")}
+    }
 
 }
